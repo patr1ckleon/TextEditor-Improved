@@ -1,0 +1,137 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 0px;
+}
+
+/* Dark theme additions */
+:root{
+  --bg-1:#0d1117;
+  --bg-2:#111827;
+  --text-1:#e5e7eb;
+  --accent:#60a5fa;
+}
+
+html, body{
+  background: linear-gradient(120deg, var(--bg-1), var(--bg-2));
+  color: var(--text-1);
+  min-height: 100%;
+}
+
+.navbar{
+  background-color: rgba(17,24,39,.85) !important;
+  backdrop-filter: blur(6px);
+}
+
+.navbar .nav-link,
+.navbar .navbar-brand,
+.footer.text-muted{ color: var(--text-1) !important; }
+
+/* compact footer so the top border sits close to the bottom */
+.footer{ padding-top: 0.25rem; padding-bottom: 0.25rem; }
+
+.brand-cursive{
+  font-family: "Great Vibes", cursive;
+  font-size: 2rem;
+  letter-spacing: .5px;
+}
+
+/* removed blob animation styles */
+
+/* Index page */
+#docs-index{ position: relative; z-index: 1; }
+
+.display-5{ color: var(--text-1); }
+.page-title{ color: var(--text-1); font-size: 2.25rem; font-weight: 800; }
+.section-title{ color: var(--text-1); font-size: 1.25rem; font-weight: 700; opacity:.9; }
+
+.doc-grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 24px;
+}
+
+.doc-card{
+  display: block;
+  text-decoration: none;
+  color: var(--text-1);
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 14px;
+  padding: 16px;
+  transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+  position: relative;
+  overflow: hidden;
+}
+.doc-card:hover{
+  transform: translateY(-4px);
+  background: rgba(255,255,255,0.06);
+  box-shadow: 0 8px 24px rgba(0,0,0,.25);
+}
+
+/* bubbly hover accent */
+.doc-card::after{
+  content: ""; position:absolute; width:0; height:0; right:-20px; bottom:-20px;
+  background: radial-gradient(circle at center, rgba(96,165,250,.35), rgba(96,165,250,0) 60%);
+  border-radius:50%; opacity:0; transform: scale(0.4);
+  transition: opacity .25s ease, transform .25s ease;
+}
+.doc-card:hover::after{ width:160px; height:160px; opacity:.7; transform: scale(1); }
+
+.doc-thumb{
+  display:flex; align-items:center; justify-content:center;
+  width:100%; height:160px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 10px;
+  font-size: 64px;
+  transition: transform .25s ease;
+}
+
+.create-card .doc-thumb{ background: rgba(96,165,250,.15); }
+
+.doc-title{
+  margin-top: 10px; font-weight: 600; letter-spacing:.2px;
+}
+
+.typing-hero{
+  position: relative; height: 240px; margin-top: 24px;
+  display:flex; align-items:center; padding: 24px; border-radius: 16px;
+  background: transparent;
+  border: none;
+  overflow: hidden;
+}
+.typing-hero .cursor{ position:absolute; top: 50%; left: 24px; transform: translateY(-50%); opacity:.7; }
+.typing-hero .line{ margin-left: 36px; font-size: 1.8rem; letter-spacing:.5px; opacity:.95; color: var(--text-1); }
+
+/* forcibly hide any leftover horizontal rules inside docs index */
+#docs-index hr, .page-title + hr{ display:none !important; }
+
+/* blob animation removed entirely */
+/* place typing hero fixed on right on Docs Index */
+.fixed-right{
+  position: fixed;
+  top: 120px;
+  right: 32px;
+  width: min(40vw, 560px);
+  z-index: 2;
+}
+
+/* remove horizontal rule on Docs index when rendered via body class */
+.Docs-Index hr{ display:none !important; }

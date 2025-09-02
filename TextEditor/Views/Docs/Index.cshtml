@@ -1,0 +1,38 @@
+﻿@model IEnumerable<TextEditor.Models.Doc>
+
+@{
+    ViewData["Title"] = "";
+}
+
+<div class="container-xxl position-relative" id="docs-index">
+    <div class="row g-5">
+        <div class="col-lg-6">
+            <h1 class="section-title mb-4">Start something fresh</h1>
+            <div class="doc-grid mb-5">
+                <a class="doc-card create-card" asp-action="Create" aria-label="Create blank document">
+                    <div class="doc-thumb">+</div>
+                    <div class="doc-title">Blank Doc</div>
+                </a>
+            </div>
+
+            <h2 class="section-title mb-3">Pick up where you left off</h2>
+            <div class="doc-grid">
+                @foreach(var item in Model)
+                {
+                    <a class="doc-card" asp-action="Edit" asp-route-id="@item.Id" aria-label="Open @item.Title">
+                        <div class="doc-thumb">📃</div>
+                        <div class="doc-title">@item.Title</div>
+                    </a>
+                }
+            </div>
+        </div>
+
+        <div class="col-lg-6 d-none d-lg-block">
+            <div id="typing-hero" class="typing-hero" aria-hidden="true">
+                <div class="cursor">|</div>
+                <div class="line" data-text="Write. Edit. Collaborate."></div>
+            </div>
+        </div>
+    </div>
+</div>
+
