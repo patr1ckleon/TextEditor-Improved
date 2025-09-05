@@ -2,19 +2,17 @@
     "version": "0.2.0",
     "configurations": [
         {
-            // Use IntelliSense to find out which attributes exist for C# debugging
-            // Use hover for the description of the existing attributes
-            // For further information visit https://github.com/dotnet/vscode-csharp/blob/main/debugger-launchjson.md.
-            "name": ".NET Core Launch (web)",
+            // Launch with hot reload so F5 always runs the latest code
+            "name": "Run (watch)",
             "type": "coreclr",
             "request": "launch",
-            "preLaunchTask": "build",
-            // If you have changed target frameworks, make sure to update the program path.
-            "program": "${workspaceFolder}/TextEditor/bin/Debug/net7.0/TextEditor.dll",
-            "args": [],
+            "program": "dotnet",
+            "args": [
+                "watch", "run",
+                "--project", "${workspaceFolder}/TextEditor/TextEditor.csproj"
+            ],
             "cwd": "${workspaceFolder}/TextEditor",
             "stopAtEntry": false,
-            // Enable launching a web browser when ASP.NET Core starts. For more information: https://aka.ms/VSCode-CS-LaunchJson-WebBrowser
             "serverReadyAction": {
                 "action": "openExternally",
                 "pattern": "\\bNow listening on:\\s+(https?://\\S+)"

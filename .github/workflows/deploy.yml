@@ -1,0 +1,27 @@
+name: Deploy TextEditor to Azure App Service
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: TextEditor
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
+      - run: dotnet restore TextEditor.csproj
+      - run: dotnet build TextEditor.csproj -c Release --no-restore
+      - run: dotnet publish TextEditor.csproj -c Release -o ${{ github.workspace }}/publish
+
+      - uses: azure/webapps-deploy@v2
+        with:
+          app-name: texteditorImproved               # your App Service name
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE }}
+          package: ${{ github.workspace }}/publish

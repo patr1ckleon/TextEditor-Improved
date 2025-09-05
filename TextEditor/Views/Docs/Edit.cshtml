@@ -39,4 +39,11 @@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script defer src="https://cdn.tiny.cloud/1/2w7q2966xfkz1mkdeqn55x1stxh2jrwtge76lve629f2x6hz/tinymce/8/tinymce.min.js" referrerpolicy="origin" crossorigin="anonymous"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function(){
+        if (!window.tinymce) return;
+        tinymce.init({ selector: 'textarea#tiny' });
+      });
+    </script>
 }
