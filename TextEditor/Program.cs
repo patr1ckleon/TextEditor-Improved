@@ -39,7 +39,10 @@ var app = builder.Build();
 using (var scope = app.Services.CreateScope())
 {
     var db = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
-    db.Database.Migrate();
+    if (useSqlite)
+        db.Database.EnsureCreated();   // <-- SQLite demo path (no migrations)
+    else
+        db.Database.Migrate();         // <-- SQL Server path (apply migrations)
 }
 
 // Configure the HTTP request pipeline.
