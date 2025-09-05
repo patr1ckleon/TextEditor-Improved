@@ -39,10 +39,8 @@ var app = builder.Build();
 using (var scope = app.Services.CreateScope())
 {
     var db = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
-    if (useSqlite)
-        db.Database.EnsureCreated();   // <-- SQLite demo path (no migrations)
-    else
-        db.Database.Migrate();         // <-- SQL Server path (apply migrations)
+    // Apply EF Core migrations on startup (works for both SQL Server and SQLite)
+    db.Database.Migrate();
 }
 
 // Configure the HTTP request pipeline.
