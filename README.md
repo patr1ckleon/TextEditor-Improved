@@ -12,7 +12,8 @@ In the images below we can see the baseline website vs the initial changes/addit
 
 <img width="1918" height="912" alt="image" src="https://github.com/user-attachments/assets/8defc8e4-d7c8-45ac-9e58-3699c508b2e2" />
 <img width="1914" height="909" alt="image" src="https://github.com/user-attachments/assets/0adaf92f-0459-4716-bc0e-5d4853fae2e0" />
-**(any new changes can be seen here: https://texteditorimproved.azurewebsites.net/)**
+(any new changes can be seen here: 
+https://texteditorimproved.azurewebsites.net)
 
 ## Current Improvements Checklist
 - Add background animation ✅
