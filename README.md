@@ -19,6 +19,7 @@ https://texteditorimproved.azurewebsites.net)
 - Add background animation ✅
 - Improve Layout (ongoing)✅
 - Add mouse cursor-responsive animations ✅
+- Clean up the login page and pages regarding account management
 - AI Sidebar Assistant (Early ideas is using SignalR or SSE for streaming responses to the editor)
 - Slash Commands (In the text editor typing "/" will allow user to insert blocks like headings, tables, code, formulas, etc.)
 - Command Palette (for quick actions like renaming doc, export PDF, toggle dark or light mode, run AI side bar assistant, etc.)
